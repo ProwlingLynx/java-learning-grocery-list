@@ -1,10 +1,11 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GroceryListApp {
     private GroceryList groceryList = new GroceryList();
-
+    private Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         GroceryListApp app = new GroceryListApp();
         app.startApp();
@@ -12,9 +13,10 @@ public class GroceryListApp {
 
     public void startApp() {
         System.out.println("Welcome to your Grocery List!\r");
-
+        int userChoice;
         while(true) {
-            printAllItems();
+            userChoice = menu();
+            System.out.println("User has chosen:\r" + userChoice);
             break;
         }
     }
@@ -22,6 +24,24 @@ public class GroceryListApp {
     private void printAllItems() {
         ArrayList groceryArrayList = groceryList.getAllItems();
         System.out.println("Here is you current shopping list:\r " + groceryArrayList);
+    }
+
+    private int menu(){
+        int userChoice;
+        while (true) {
+            try {
+                System.out.println("What would you like to do?\r" +
+                        "1 - Print your grocery list?\r" +
+                        "2 - Add an item?\r" +
+                        "0 - Exit.\r" +
+                        "Enter any selection from 0 - 2\r");
+                userChoice = scanner.nextInt();
+                return userChoice;
+            } catch (Exception userError) {
+                System.out.println("Invalid choice. Please try again");
+            }
+        }
+
     }
 
 }

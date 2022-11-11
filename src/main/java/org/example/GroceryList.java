@@ -13,7 +13,8 @@ public class GroceryList {
         return groceryArrayList;
     }
 
-    public GroceryItem addItem(GroceryItem item) {
+    public GroceryItem addItem(double price, String name, int quantity) {
+        GroceryItem item = new GroceryItem(price, name, quantity);
         groceryArrayList.add(item);
         return item;
     }
