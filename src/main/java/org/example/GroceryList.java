@@ -12,4 +12,9 @@ public class GroceryList {
         groceryArrayList.add("apples");
         return groceryArrayList;
     }
+
+    public GroceryItem addItem(GroceryItem item) {
+        groceryArrayList.add(item);
+        return item;
+    }
 }
