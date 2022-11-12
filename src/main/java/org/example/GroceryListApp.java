@@ -3,15 +3,17 @@ package org.example;
 import java.util.Scanner;
 
 public class GroceryListApp {
-    private GroceryList groceryList = new GroceryList();
-    private Scanner scanner = new Scanner(System.in);
-    private int userChoice;
+    private final GroceryList groceryList = new GroceryList();
+    private final Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         GroceryListApp app = new GroceryListApp();
         app.startApp();
     }
 
     public void startApp() {
+        int userChoice;
+
         System.out.println("Welcome to your Grocery List!\r");
 
         while(true) {
@@ -76,7 +78,8 @@ public class GroceryListApp {
                 scanner.nextLine();
             }
         }
-    }private String getItemName() {
+    }
+    private String getItemName() {
         while (true) {
             try {
                 System.out.println("Enter item name: ");
@@ -86,7 +89,8 @@ public class GroceryListApp {
                 scanner.nextLine();
             }
         }
-    }private int getItemQuantity() {
+    }
+    private int getItemQuantity() {
         while (true) {
             try {
                 System.out.println("Enter item quantity: ");
