@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class GroceryListApp {
     private GroceryList groceryList = new GroceryList();
     private Scanner scanner = new Scanner(System.in);
+    private int userChoice;
     public static void main(String[] args) {
         GroceryListApp app = new GroceryListApp();
         app.startApp();
@@ -13,12 +14,27 @@ public class GroceryListApp {
 
     public void startApp() {
         System.out.println("Welcome to your Grocery List!\r");
-        int userChoice;
+
         while(true) {
             userChoice = menu();
             System.out.println("User has chosen:\r" + userChoice);
-            break;
+            switch (userChoice){
+                case 1:
+                    printAllItems();
+                    break;
+                case 2:
+                    System.out.println("Going to add item!");
+                    break;
+                default:
+                    System.out.println("Hmm, I don't recognize that one..");
+                    break;
+            }
+            if (userChoice == 0) {
+                break;
+            }
         }
+
+        System.out.println("Thank you for using the Grocery App!\nSee you soon!");
     }
 
     private void printAllItems() {
@@ -38,7 +54,7 @@ public class GroceryListApp {
                 userChoice = scanner.nextInt();
                 return userChoice;
             } catch (Exception userError) {
-                System.out.println("Invalid choice. Please try again\r");
+                System.out.println("Invalid choice. Please try again\n");
                 scanner.nextLine();
             }
         }
