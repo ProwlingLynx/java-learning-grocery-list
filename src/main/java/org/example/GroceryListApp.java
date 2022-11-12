@@ -1,6 +1,5 @@
 package org.example;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GroceryListApp {
@@ -20,10 +19,12 @@ public class GroceryListApp {
             System.out.println("User has chosen:\r" + userChoice);
             switch (userChoice){
                 case 1:
-                    printAllItems();
+                    groceryList.printAllItems();
                     break;
                 case 2:
                     System.out.println("Going to add item!");
+                    addGrocery();
+                    groceryList.printAllItems();
                     break;
                 default:
                     System.out.println("Hmm, I don't recognize that one..");
@@ -37,10 +38,7 @@ public class GroceryListApp {
         System.out.println("Thank you for using the Grocery App!\nSee you soon!");
     }
 
-    private void printAllItems() {
-        ArrayList groceryArrayList = groceryList.getAllItems();
-        System.out.println("Here is you current shopping list:\r " + groceryArrayList);
-    }
+
 
     private int menu(){
         int userChoice;
@@ -58,7 +56,46 @@ public class GroceryListApp {
                 scanner.nextLine();
             }
         }
+    }
 
+    private void addGrocery() {
+        double price = getItemPrice();
+        scanner.nextLine();
+        String name = getItemName();
+        int quantity = getItemQuantity();
+        groceryList.addItem(price, name, quantity);
+    }
+
+    private double getItemPrice() {
+        while (true) {
+            try {
+                System.out.println("Enter item price: ");
+                return scanner.nextDouble();
+            } catch (Exception e) {
+                System.out.println("Please enter an amount 0 or greater.");
+                scanner.nextLine();
+            }
+        }
+    }private String getItemName() {
+        while (true) {
+            try {
+                System.out.println("Enter item name: ");
+                return scanner.nextLine();
+            } catch (Exception e) {
+                System.out.println("Please enter a name.");
+                scanner.nextLine();
+            }
+        }
+    }private int getItemQuantity() {
+        while (true) {
+            try {
+                System.out.println("Enter item quantity: ");
+                return scanner.nextInt();
+            } catch (Exception e) {
+                System.out.println("Please enter an amount 0 or greater.");
+                scanner.nextLine();
+            }
+        }
     }
 
 }

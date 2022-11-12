@@ -8,14 +8,17 @@ public class GroceryList {
 
     }
 
-    public ArrayList getAllItems() {
-        groceryArrayList.add("apples");
-        return groceryArrayList;
+    public void printAllItems() {
+        GroceryItem item;
+        for (int i = 0; i < groceryArrayList.size(); i++) {
+            item = (GroceryItem) groceryArrayList.get(i);
+            System.out.println("item " + i + " - " + item.getName() + " price: " + item.getPrice() + " quantity: " + item.getQuantity() + "\n");
+        }
+        System.out.println("\n");
     }
 
-    public GroceryItem addItem(double price, String name, int quantity) {
+    public void addItem(double price, String name, int quantity) {
         GroceryItem item = new GroceryItem(price, name, quantity);
         groceryArrayList.add(item);
-        return item;
     }
 }
