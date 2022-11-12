@@ -30,15 +30,16 @@ public class GroceryListApp {
         int userChoice;
         while (true) {
             try {
-                System.out.println("What would you like to do?\r" +
-                        "1 - Print your grocery list?\r" +
-                        "2 - Add an item?\r" +
-                        "0 - Exit.\r" +
-                        "Enter any selection from 0 - 2\r");
+                System.out.println("What would you like to do?\n" +
+                        "1 - Print your grocery list?\n" +
+                        "2 - Add an item?\n" +
+                        "0 - Exit.\n" +
+                        "Enter any selection from 0 - 2\n");
                 userChoice = scanner.nextInt();
                 return userChoice;
             } catch (Exception userError) {
-                System.out.println("Invalid choice. Please try again");
+                System.out.println("Invalid choice. Please try again\r");
+                scanner.nextLine();
             }
         }
 
